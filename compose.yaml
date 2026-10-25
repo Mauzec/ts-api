@@ -1,0 +1,26 @@
+services:
+  api:
+    build: .
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8599
+      DB_PTH: /data/db.sqlite
+    ports:
+      - "127.0.0.1:8599:8599"
+    volumes:
+      - tracker-data:/data
+    stop_grace_period: 110s
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:8599/openapi.json').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+volumes:
+  tracker-data:

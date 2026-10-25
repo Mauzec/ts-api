@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.test-build/
+coverage/
+.env
+.env.*
+!.env.example
+
+data/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+.DS_Store
+*.log
+
+.runtime/

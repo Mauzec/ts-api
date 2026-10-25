@@ -1,0 +1,13 @@
+.git
+.env
+.env.*
+node_modules
+dist
+.test-build
+coverage
+data
+*.sqlite*
+*.db*
+*.log
+.runtime
+
